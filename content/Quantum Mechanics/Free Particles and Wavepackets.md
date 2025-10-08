@@ -1,9 +1,20 @@
+## Solutions to The Free Particle
 The free particle solutions are solutions to the Schrodinger equation when the potential term is always zero. They don't have the same conditions as bound states which must go to zero as you get really far out.
 
 $$
 -\frac{\hbar^2}{2m}\left( \frac{d^2}{dx^2} \right)\psi=E\psi
 $$
-Say we have a measurement apparatus for a particle neat $x=0$ and we have accuracy $\sigma$. After measuring the location of the particle, we have given the particle a wavefunction of a Gaussian related to the accuracy of the measurement device. The wavefunction is a Gaussian because of the uncertainty in the measurement. 
+The eigenstates of energy will be the same as the eigenstates for momentum since $V=0$. Solving the schrodinger equation, we find that the energy eigenstates are:
+$$
+\ket{E_{k}} = \ket{p} = \int  \, dx \frac{1}{\sqrt{ 2\pi \hbar }}e^{ ipx/\hbar }\ket{x}
+$$
+The eigenvalues of this equation are $E=\frac{p^2}{2m}$ but momentum space is a continous spectra, indicating that the energy of a free particle exists on a continous spectrum.  
+
+## Performing A Change Of Basis
+Say we have a measurement apparatus for a particle neat $x=0$ and we have accuracy $\sigma$. After measuring the location of the particle, we have given the particle a wavefunction of a Gaussian related to the accuracy of the measurement device. The wavefunction is a Gaussian because of the uncertainty in the measurement. We now have forced the wavefunction of the particle to be:
+$$
+\braket{ x | \psi } =\psi(x)=\left( \frac{1}{2\pi\sigma^2} \right)^{1/4}e^{ -(x/2\sigma)^2 }
+$$
 
 Now we are interested in the momentum.
 $$
@@ -32,18 +43,26 @@ We know what the momentum eigenvectors look like in the x-basis.
 $$
 \ket{p} = \frac{1}{\sqrt{ 2\pi \hbar }}\int dxe^{ipx/\hbar}\ket{x}
 $$
+To perform this transformation we will have to do a form of [[Fourier Transform]] from $x$ basis into $p$ basis with the kernel $e^{ ipx/\hbar }$. 
 
 Then we can evaluate the integral associated with the inner product
 $$
 \braket{ p | \psi }
 $$
 This inner product moves us from the x basis into the p basis by measuring the weighting of each eigenvector of p in the x basis to give a function of weighted basis functions in the p basis.
+
+$$
+\int_{-\infty}^{\infty} \gamma e^{ -ipx/\hbar }\alpha e^{ -(x/2\sigma)^2 } \, dx
+$$
 The expectation value remains to be zero. This means that we are equally likely to find the particle with negative and positive momentum.
 
 $$
 \phi(p) = \beta e^{-(p\sigma/\hbar)^2}
 $$
 The resulting wavefunction in the p basis is now expanding with sigma. This is the Heisenberg uncertainty principle since the more localized our measurement is in position space, the less defined the momentum is although expectation value remains the same. (at $t=0$)
+
+If we were interested in the time evolution of this wavefuction, we would have to do this transform to get it into an energy eigenbasis. If we wanted to see how the particle would evolve in space, we would then have to transform the eigenbasis back to position space with the time dependence added.
+
 
 In the free particle case, where there is no potential energy, the eigenvectors of the p basis are the same eigenvectors for the energy basis. 
 
