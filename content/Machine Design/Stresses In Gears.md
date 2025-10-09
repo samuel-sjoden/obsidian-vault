@@ -9,6 +9,33 @@ The perpendicular contact stresses create additional internal [[Poisson Stresses
 
 From the [[St. Venants Principle]], we usually look just under the surface so that the forces are more distributed. This is often evident a few microns below the surface. This is where the the maximum shear stress is typically reached and is where the gear ends up failing due to contact shear stresses.
 
+### Contact Stress Equations
+To find out the worst case senario to determine the maximum load the contact stresses are applying we use the maximum point from the hertz contact stress when the gears have one contact point. 
+
+#### Elastic Coefficent $C_{p}$
+
+#### Geometry Factor $I$
+The geometry factor scales the $\sigma_{all}$ based on the geometry from the gear. This comes from factors like number of teeth, gear ratio and pressure angles.
+$$
+\sigma_{nom, contact}= C_{p}\sqrt{ \frac{W_{t}}{FDpI} }
+$$
+#### Contact Stress Number
+To adapt the nominal allowable stress, the nominal stress is adapted to the specific system, so we add the derating and rating constants.
+There is an additional constant here to derate the gears if there is a surface finish that may affect the contact stresses.
+$$
+\sigma_{contact, design (corrected)}=C_{p}\sqrt{ \frac{W_{t}K_{o}K_{v}K_{s}K_{m}}{} }
+$$
+#### Allowable Contact Strengths $S_{c}$
+Found in a table and is a fuction of gear hardness. The over all contact strength will have a dependence on lifetime number of cycles and some other stuff.
+
+$$
+\sigma_{contact, allowable}=\frac{S_{c}Z_{m}C_{H}}{K_{T}K_{R}}
+$$
+##### Saftey Factor
+$$
+n_{fs}=\frac{\sigma_{contact, allowable}}{\sigma_{contact, design}}
+$$
+Most of the design margins are baked into the design factors, so we only require a saftey fator $[1,1.5]$.
 ### Rolling Friction Stress
 Ontop of the static hertz contact stress, there is additional shear stresses from the rolling of the teeth. These occur entering and leaving the contact.  Entering contact as a driving tooth, it starts by getting compressed. As it leaves the contact, the pressure leaves the tooth and the surface expands again.
 
@@ -69,6 +96,7 @@ If we want it to last longer, we want to derate the allowable stress number.
 
 ##### Temperature Factor $K_{T}$
 At temperatures above a threshold, the material properties degrade rapidly, so correction factors for high temperature operation are added.
+
 
 
 

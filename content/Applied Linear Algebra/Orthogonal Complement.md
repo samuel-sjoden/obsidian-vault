@@ -182,7 +182,7 @@ The range space of the transpose of A is the same subspaces as the orthogonal co
 >[!Question]
 > This does not seem intuitive to me. I think I need to understand the relationship between the subspaces of $A$ and $A^T$ in general
 
-
+> When she calculated the orthogonal complement of a subspace spanned by $u_{1},u_{2}$, the system $Ax=0$ was made of the vectors written as rows	
 
 
 

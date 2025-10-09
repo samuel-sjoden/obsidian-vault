@@ -71,3 +71,45 @@ $$
 then $$
 \vec{x}I = Px + P_{\perp}x
 $$
+ >[!Theorem]
+ > Let $\{ u_{1}, \dots, u_{m} \}$ be an orthonormal basis in $U$ and let $Q_{1}=\begin{bmatrix}u_{1},\dots,u_{m}\end{bmatrix}$,
+ > Then $P=Q_{1}Q_{1}^T$
+ 
+ **Proof**
+Since the basis is orthonormal all of the dot products, $\left< u_{1},u_{1} \right>=1$
+$$
+Px=u_{1}u_{1}^T+\dots+u_{m}u_{m}^T
+$$
+$$
+Q_{1}Q_{1}^Tx=\begin{bmatrix}
+u_{1}, \dots, u_{n}
+\end{bmatrix}
+\begin{bmatrix}
+u_{1}^T \\
+\dots \\
+u_{m}^T
+ \end{bmatrix}x
+$$
+> [!Theorem]
+> Orthogonal Expansion
+> We represent the span of a subspace/matrix with a set of vectors who's linear combinations reach all elements in the subspace.
+> Let $\mathbb{R}^n$ have an orthogonal basis. Then the expansion of $x$ is the projection of $x$ on the space $\mathbb{R}^n$.
+
+$$
+x=\left< x,u_{1} \right> /\left< u_{1},u_{1} \right> u_{1}+\dots+\left< x,u_{m} \right> /\left< u_{m},u_{m} \right> u_{m}
+$$
+> How do we find an orhtogonal basis of $U$?
+
+### Building an Orthogonal Basis of A Subpace $U$
+If there is a $U$ represented by a basis that is not necesarrily orthogonal to each other, we can build a basis by finding the orthogonal projections of each other
+$$
+\begin{align}
+v_{1}=u_{1} \\
+v_{2}=u_{2}-\text{proj}_{u_{1}}u_{2} \\
+v_{3}=u_{3}-\text{proj}_{u_{2}}u_{3}-\text{proj}_{u_{1}}u_{3} \\
+\dots \\
+v_{m}=u_{m}-\text{proj}_{u_{1}}u_{m} - \dots-\text{proj}_{u_{m-1}}u_{m}
+\end{align}
+$$
+
+

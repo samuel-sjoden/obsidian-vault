@@ -39,18 +39,35 @@ GPIO0 is internally held high with a pull up resistor and GPIO2 held low with a 
 
 Currently, GPIO0 is connected to the boot button. For an autoflash, the raspi would have to be able to bring the pin low so that it can be put into the download sequence.
 
-So a typical sequence to load code onto the ESP32 would look like this:
-- Hold the EN pin low to power off the ESP32
-- Hold the GPIO0 pin low to put the ESP into download mode
-- After the chip has 
-### FOC Analysis
-#### Functions
-- Must be able to flash the ESP directly through UART communication from the raspi
-- Must be able to flash the ESP through a USB connection for testing
-- Must be able to flash the ESP with and without pressing physical boot and reset buttons
-#### Objectives
-- 
-#### Constraints
+>[!Verify This]
+>So a typical sequence to load code onto the ESP32 would look like this:
+>- Hold the EN pin low to power off the ESP32
+>- Hold the GPIO0 pin low to put the ESP into download mode
+>- After the chip has been written to over serial, the chip can be rebooted.
+>- Hold the EN pin low again to boot of the ESP
+>- GPIO0 pin is internally held high, and the ESP begins its boot sequence.
+
+> Does the raspi and the ESP32 share a common ground?
+
+#### Autoflash
+Looking into how dev boards are able to autoflash when a user plugs into the board.
+Programs like ESP tool are used to autoflash on the dev board. They connect the **DTR and RTS** lines to a circuit that gives acess to hold the GPI0 and EN pin low so they have have a proper boot sequence.
+[espressif docs](https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html?utm_source=chatgpt.com)
+
+> What is GPIO12 at boot? If it is held high, it brings refrence high for GPIO0 to 1.8V. The altium does not show anything connected.
+
+[Dev kit autoflash circuit](https://dl.espressif.com/dl/schematics/esp32_devkitc_v4-sch-20180607a.pdf)
+![[Pasted image 20251009133515.png]]
+On the dev kits they connect the DTR and RTS lines like this to the boot and EN pins. The DTR and RTS come from the USB signal so we dont have this luxury. This could be a quality of life improvement though to elimintate the need to press the buttons when uploading code directly to the powerboard.
+
+> Why is the GPIO0 pin held high externally? In the dev kit they have a small cap across this too which I assume is for debouncing?
+> ![[Pasted image 20251009134101.png]]
+
+> What are these sheild disconnects for?
+> ![[Pasted image 20251009134309.png]]
+
+> Can I get component number of the board we use to convert USB to UART.
+
 
 ## Experiments
 

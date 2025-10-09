@@ -13,7 +13,7 @@ The only point of zero sliding (no slipping) is a the pitch diameter. The rest o
 
 ### Common Gears
 - Spur - planar motion, easy to manufacture
-- Helical - planar motion, quieter operation, withstand more load.
+- [[Helical Gears]] - planar motion, quieter operation, withstand more load.
 - Crossed helical - can change axis of motion or remain in the same plane. Directional, can only mesh in one direction.
 - Bevel - changes plane of motion. 
 - Worm - A screw that permits massive gear ratios since each revolution only advances a single tooth. Changes axis of motion. No common line of action, so there is no point of pure rolling, only slipping. 

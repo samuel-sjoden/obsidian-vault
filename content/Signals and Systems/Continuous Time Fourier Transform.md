@@ -10,7 +10,7 @@ If the signal is
 - absolutley integrable
 - has a finite number of maxima and minima on a finite interval
 - has a finite number of discontinuities within a finite interval
-Then the fourier representatio will converge to $x(t)$ where it is continous and will be the average value on the discontinuity.
+Then the [[Fourier Transform]] will converge to $x(t)$ where it is continous and will be the average value on the discontinuity.
 
 ### Periodic Signals
 An interesting example: all periodic signals are not square integrable (we cannot normalize them). Since the above conditions are only sufficent and not necesarry, we can still conjure fourier series representations by using the delta function.
