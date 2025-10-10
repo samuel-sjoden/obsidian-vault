@@ -73,7 +73,7 @@ Did my own analysis to see if I could verify the truth table above, found the sa
 
 > Can I get component number of the board we use to convert USB to UART.
 
-
+> Is it alright to leave a connection to the reset pin floating if another circuit is holding it in a defined state? Thinking about connecting pins from UART  plug to the boot circuit which would allow autoflash and boot when testing. The issue would be is when not in place they would be left exposed.
 ## Experiments
 
 ### Testing Sending and Receiving Serial Signals
