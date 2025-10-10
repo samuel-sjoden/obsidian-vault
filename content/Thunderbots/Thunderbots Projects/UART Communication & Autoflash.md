@@ -54,8 +54,6 @@ Looking into how dev boards are able to autoflash when a user plugs into the boa
 Programs like ESP tool are used to autoflash on the dev board. They connect the **DTR and RTS** lines to a circuit that gives acess to hold the GPI0 and EN pin low so they have have a proper boot sequence.
 [espressif docs](https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/boot-mode-selection.html?utm_source=chatgpt.com)
 
-> What is GPIO12 at boot? If it is held high, it brings refrence high for GPIO0 to 1.8V. The altium does not show anything connected.
-
 [Dev kit autoflash circuit](https://dl.espressif.com/dl/schematics/esp32_devkitc_v4-sch-20180607a.pdf)
 ![[Pasted image 20251009133515.png]]
 On the dev kits they connect the DTR and RTS lines like this to the boot and EN pins. The DTR and RTS come from the USB signal so we dont have this luxury. This could be a quality of life improvement though to elimintate the need to press the buttons when uploading code directly to the powerboard.
@@ -63,6 +61,7 @@ On the dev kits they connect the DTR and RTS lines like this to the boot and EN 
 Did my own analysis to see if I could verify the truth table above, found the same values:
 ![[Pasted image 20251009184753.png]]
 
+#### Questions Round 2
 > Why is the GPIO0 pin held high externally? In the dev kit they have a small cap across this too which I assume is for debouncing.
 
 > The external pullup reduces the overall resistance, since the internal pullup is quite large ($47\text{k}\Omega$). This improves response speed. This is very useful for I2C lines.
@@ -74,6 +73,10 @@ Did my own analysis to see if I could verify the truth table above, found the sa
 > Can I get component number of the board we use to convert USB to UART.
 
 > Is it alright to leave a connection to the reset pin floating if another circuit is holding it in a defined state? Thinking about connecting pins from UART  plug to the boot circuit which would allow autoflash and boot when testing. The issue would be is when not in place they would be left exposed.
+
+> What is GPIO12 at boot? If it is held high, it brings refrence high for GPIO0 to 1.8V. The altium does not show anything connected.
+
+> I can see that some pins to the connector are directly shorted to the pins on the ESP. What was the plan with those pins?
 ## Experiments
 
 ### Testing Sending and Receiving Serial Signals
