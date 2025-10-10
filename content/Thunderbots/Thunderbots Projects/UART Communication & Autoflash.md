@@ -77,6 +77,15 @@ Did my own analysis to see if I could verify the truth table above, found the sa
 > What is GPIO12 at boot? If it is held high, it brings refrence high for GPIO0 to 1.8V. The altium does not show anything connected.
 
 > I can see that some pins to the connector are directly shorted to the pins on the ESP. What was the plan with those pins?
+
+I found an open source library that is supposed to flash esps over serial [link](https://github.com/espressif/esp-serial-flasher)
+
+An issue I may have encountered with the current hardware setup is that the PI's RX and TX connections are not connected to the flash TX and flash RX. This means that the PI cannot write to the flash because the ESP's ROM bootloader only looks at the GPIO1 and GPIO3 at boot. The serial connection bus UART1 can only be instantiated at runtime, which requires a an existing program to setup the pins. [Source](https://docs.espressif.com/projects/esptool/en/latest/esp32/advanced-topics/serial-protocol.html)
+
+The code would have to be uploaded to the ESP at runtime. I am not sure if you can then execute this code which would require it to be written to persistent memory, then loaded into ram.
+> Can this even be done at runtime?
+
+![[Pasted image 20251010104436.png]]
 ## Experiments
 
 ### Testing Sending and Receiving Serial Signals
