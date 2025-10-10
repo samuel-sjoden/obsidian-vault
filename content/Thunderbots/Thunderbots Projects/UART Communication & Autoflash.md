@@ -7,7 +7,7 @@ To actually flash the ESP, the boot and reset buttons are required, but are in p
 
 An additional capability desired is to be able to flash the ESP without requiring the raspi. That would be a direct connection from a laptop to the ESP, which would require the FTDI board.
 
-### Questions To James
+#### Some Questions
 >Why is it first routed to the UI board?
  To maintain consistency of the design and keep the electrical package consistent
 
@@ -60,7 +60,12 @@ Programs like ESP tool are used to autoflash on the dev board. They connect the 
 ![[Pasted image 20251009133515.png]]
 On the dev kits they connect the DTR and RTS lines like this to the boot and EN pins. The DTR and RTS come from the USB signal so we dont have this luxury. This could be a quality of life improvement though to elimintate the need to press the buttons when uploading code directly to the powerboard.
 
-> Why is the GPIO0 pin held high externally? In the dev kit they have a small cap across this too which I assume is for debouncing?
+Did my own analysis to see if I could verify the truth table above, found the same values:
+![[Pasted image 20251009184753.png]]
+
+> Why is the GPIO0 pin held high externally? In the dev kit they have a small cap across this too which I assume is for debouncing.
+
+> The external pullup reduces the overall resistance, since the internal pullup is quite large ($47\text{k}\Omega$). This improves response speed. This is very useful for I2C lines.
 > ![[Pasted image 20251009134101.png]]
 
 > What are these sheild disconnects for?
