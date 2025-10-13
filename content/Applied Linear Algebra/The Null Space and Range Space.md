@@ -1,9 +1,14 @@
 The null space and range spaces are special [[Subspaces]] which describe the solution spaces of $A$. The null space is the space of all vectors in the domain that are mapped to the zero space. The range (equivalent to the column space or image) of the matrix is a subspace of the codomain which the matrix $A$ maps to. 
+
+> [!Remeber]
+> **Null Space** is an element of the [[Domain]]
+> **Range Space** is an element of the [[Codomain]]
+
 ### Null Space
 
-The null space (or kernel) of a [[Linear Transform]] is the subspace of the vector space which the linear transform maps directly to the zero space $\hat{0}$. The basis of this subspace are the basis vectors who form the subspace. All linear combinations of this basis are mapped to the [[Zero Space]] by $T$. 
+The null space (or kernel) of a [[Linear Transform]] is the subspace of the vector space which the linear transform maps directly to the zero space $\hat{0}$. The basis of this subspace are the basis vectors who form the subspace. All linear combinations of this basis are mapped to the [[Zero Space]] by $T$. More intutition on [[Null Space]]
 
-It is a subspace of the [[Domain]] of A. Its [[Orthogonal Complement]] is the range space, covered below.
+It is a subspace of the [[Domain]] of A. 
 
 To find this basis, find the nontrivial solutions to the [[Homogeneous Equation]] $Ax=0$. The linearly independent vectors that are not the zero vector that solve this equation are the null space of the matrix $A$
 
@@ -159,11 +164,17 @@ Where $x_{2},x_{3}$ are free variables.
 
 >[!Question]
 > What is the null space? I don't have an intuition as to why the solution of the free variables build the null space.
+## Relationship Between $N(A)$ and $R(A)$
+Since $N(A)$ and $R(A)$ are not subspaces of the same space, they are not directly related to each other through orthogonality. However, they are related to each other through the [[Matrix Transpose]] which makes them share spaces.
 
-
-
-
-
-
-
+If $A$ is an $m\times n$ matrix and $A^{T}$ is an $n\times m$ matrix then:
+$$
+\begin{align}
+N(A) \subseteq \mathbb{R}^{n} \\
+R(A^{T})\subseteq \mathbb{R}^{n} \\
+N(A^{T})\subseteq \mathbb{R}^{m} \\
+R(A) \subseteq \mathbb{R}^{m}
+\end{align}
+$$
+The subspaces are actually related though the [[Orthogonal Complement]]
 

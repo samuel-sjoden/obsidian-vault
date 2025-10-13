@@ -186,5 +186,28 @@ The range space of the transpose of A is the same subspaces as the orthogonal co
 
 
 
+The orthogonal complement of a subspace exisists in the null space of the subspace.
 
+$$
+U = \text{span}\{ \begin{bmatrix}
+u_{1}^T \\
+u_{2}^T \\
+\dots \\
+u_{m}^T
+\end{bmatrix}x=0 \}
+$$
+>[!Question]
+> Dont the linear combinations of the columns form the mapping of the vectors?
+> What does it mean to be in the null space of a subspace?
+
+> [!Answer]
+>  We are looking at the vectors in the range that are mapped to zero. 
+>  The null space of a subspace is the set of vectors that cannot be represented as a linear combination of the vectors (the orthogonal set of vectors). Linear combinations of vectors looks like:
+>  $$
+ x = \vec{u_{1}}a + \vec{u_{2}}b + \vec{u_{3}}c$$
+ > We are looking for the $x$ vectors that are not in $U$. We dont care about the vector of $a,b,c$. We want to find the $x$ that is orthogonal to each vector $u_{1},u_{2},u_{3}$. This is defined by the inner product $\left< x,u_{1} \right>=0$.
+ 
+ 
+ 
+ 
 

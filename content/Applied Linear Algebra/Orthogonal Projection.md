@@ -98,18 +98,5 @@ $$
 $$
 x=\left< x,u_{1} \right> /\left< u_{1},u_{1} \right> u_{1}+\dots+\left< x,u_{m} \right> /\left< u_{m},u_{m} \right> u_{m}
 $$
-> How do we find an orhtogonal basis of $U$?
-
-### Building an Orthogonal Basis of A Subpace $U$
-If there is a $U$ represented by a basis that is not necesarrily orthogonal to each other, we can build a basis by finding the orthogonal projections of each other
-$$
-\begin{align}
-v_{1}=u_{1} \\
-v_{2}=u_{2}-\text{proj}_{u_{1}}u_{2} \\
-v_{3}=u_{3}-\text{proj}_{u_{2}}u_{3}-\text{proj}_{u_{1}}u_{3} \\
-\dots \\
-v_{m}=u_{m}-\text{proj}_{u_{1}}u_{m} - \dots-\text{proj}_{u_{m-1}}u_{m}
-\end{align}
-$$
-
+> How do we find an orhtogonal basis of $U$? Use [[The Grahm-Schmidt Method]]
 

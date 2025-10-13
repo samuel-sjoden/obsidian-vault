@@ -100,6 +100,17 @@ To ensure the integrity of the signal it should accurately respond to the transm
 
 We will also scope the UART lines to see of there is any distortion on the signals we will scope the UART lines.
 
+#### Test
+Wrote a short script for each the sending and receiving ESP32s. To emulate the behavior during flashing, the ESP on the powerboard was designated the receiver and the external dev board the sender. 
+
+The RX and TX were connected to the header pin that the py would typically connect to the ESP through jumper cables. The testing code for both intialized the UART1 bus for the communication. The dev board sent a string which contained a number which incremented each time. It would then print to the UART0 bus, which we monitored, "Sent: {message number}". The receiving ESP, on the powerboard, would listen on that line and then write to UART0 "Received: {message number}".
+
+The baud rate was set to 115200 bits per second. An uncertainty I have with this test is that the current code may just capture how fast the receiver code is looping not data loss.
+
+We additionally scoped the transmission line for noise with the other ESP connected.
+
+### Improving The Test Strategy
+
 
 
 
