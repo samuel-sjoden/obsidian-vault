@@ -110,7 +110,41 @@ The baud rate was set to 115200 bits per second. An uncertainty I have with this
 We additionally scoped the transmission line for noise with the other ESP connected.
 
 ### Improving The Test Strategy
+Doing some research I found a much more robust way of stress testing the communication lines. It will follow the same sender-receiver pattern but with some additinonal verification steps so that the testing is independent of loop speed and instead is able to capture data corruption, packet loss, and response rate.
 
+The sent messages will be take the format:
+```
+SEQ<message number>:<checksum>\n
+```
 
+This allows the messages to be tracked and the checksum will be a method to see if there has been any data corruption.
+
+The checksum that I am looking into is cyclic redundancy check because of the simplicity and small size of the bit streams I intend on sending. It will be able to detect bit errors during the transmission.
+
+Found a [repo](https://github.com/d-bahr/CRCpp) that has an implementation of the CRC checksum so all that is left to do is verify. This [website](https://www.sunshine2k.de/articles/coding/crc/understanding_crc.html) provided a good explanation of how it works.
+##### State Machines
+###### Sender
+1. Prepare a message in the form $\text{SEQ}\left< \text{Message Number} \right>:\left< \text{Message Checksum} \right>$. Send this message over UART and log when the message was sent.
+2. Wait for up to a timeout period for a response from the receiver
+3. If message recieved before timeout
+	 - Parse acknowlegement into $\text{ACK}\left< \text{Message Number} \right>:\left< \text{Message Checksum} \right>$
+	 - Verify the messages checksum
+	 - Record in serial monitor if the acknoledgment was good or bad and record the time it took for the message to be returned. The absolute time is not what is important, it is changes in time that gives information on retries
+	If the message was not returned before the timeout, record a no acknowledgement error
+4. Increment message number and repeat
+###### Receiver
+1. Listen for a message of the form $\text{SEQ}\left< \text{Message Number} \right>:\left< \text{Message Checksum} \right>$.
+2. If message received, parse into individual bits and validate the checksum
+3. If the checksum matches, then record a successful transmission. 
+	If it doesn't log the message number, time and the corrupted data. 
+	If the message could not be properly parsed, report an unknown message
+4. Respond to the sender with an acknowledgment.
+
+###### Post-Testing Data Processing
+The metrics we will be interested in running the test will be:
+- Corruption rate - $\frac{\text{Corrupted Messages Received}}{\text{Number of Messages Sent}}$
+- Histogram of response time
+-  Loss Rate- $\frac{\text{Number of Messages Acknowledged}}{\text{Total Messages Sent}}$
+- Error Rate - $\frac{\text{Number of Corrupted Responses}}{\text{Number of Acknowledgments}}$
 
 
