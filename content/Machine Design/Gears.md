@@ -15,7 +15,7 @@ The only point of zero sliding (no slipping) is a the pitch diameter. The rest o
 - Spur - planar motion, easy to manufacture
 - [[Helical Gears]] - planar motion, quieter operation, withstand more load.
 - Crossed helical - can change axis of motion or remain in the same plane. Directional, can only mesh in one direction.
-- Bevel - changes plane of motion. 
+- [[Bevel Gears]] - changes plane of motion. 
 - Worm - A screw that permits massive gear ratios since each revolution only advances a single tooth. Changes axis of motion. No common line of action, so there is no point of pure rolling, only slipping. 
 - Internal
 - Rack and pinion - converts rotational to linear motion. 
@@ -77,33 +77,6 @@ This contact ratio is dependent on the addendum length.
 If the addendum becomes too long, the gears will jam which is called interference. This is when contact starts before the tangent line that connects the duodenum circles.
 
 To prevent interference, keep the number of teeth on the pinion gear above a minimum.
-
-## Forces
-
-For our uses, we are assuming 100% efficiency and therefore perfect power transfer. Along the pressure line there are two force components. A radial component that pushes on the axis, and a tangential component that creates the moment which turns the gear.
-##### Bevel Gears
-The key role of a bevel gear is to transform the axis of rotation by 90 degrees. 
-
-Forces on bevel gears are resolved in three orthogonal components, the additional one is along the axis of the shaft as a result of the change in direction. The three components are radial, axial, and tangential.
-
-> The location where the forces act is on the $r_{avg}$ and not a the pitch diameter. 
-
-$$
-r_{avg} = \frac{D}{2}-\left( \frac{F}{2} \right)\cos(\gamma)
-$$
-
-##### Helical Gears
-Helical gears have larger area teeth, which reduces the pressure on each tooth which allow them to transfer more power. The teeth slide into each other much smoother as well which permits quieter operation. 
-
-![[Pasted image 20251002115539.png]]
-
-There are two pitches defined depending on what plane you look at. 
-The normal pitch and the tangential pitch.
-
-#### Reaction Forces
-
-From gear contact forces the reaction forces of the gears can be found which is necessary to find the appropriate bearings. 
-
 
 ## Material Selection
 

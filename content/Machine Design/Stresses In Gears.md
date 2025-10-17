@@ -1,5 +1,6 @@
 There are two primary forces in gears: [[Bending Stress]] from the catelevering of the teeth and contact stress from the contact between the teeth.
 
+When designing systems with gears, analyzing the stresses in the gears usually is what comes after analyzing the [[Forces In Gears]] 
 ## Hertz Contact Stress
 Whereever the two objects make contact there is a small path of material that deforms slightly. Depending on the geometry of the contact patch the stress distribution changes. The involute profile of the gears make contact in a cylindrical profile. 
 
@@ -96,8 +97,14 @@ If we want it to last longer, we want to derate the allowable stress number.
 
 ##### Temperature Factor $K_{T}$
 At temperatures above a threshold, the material properties degrade rapidly, so correction factors for high temperature operation are added.
+## Comparing $n_{fs}$ For Bending And Contact Stress
 
+- Bending stress is linear with the load
+- Contact stresses are not linear, they vary with the square root of the load
 
+So with varying loads, we need to compare $n_{\text{bending}, fs}$ with $n_{\text{contact}, fs}^{2}$
+for linear or helical contact. 
 
-
+For spherical contact, the hertz contact stress changes to spherical contact (crossed helical gears) so:
+$n_{\text{contact, fs}}^{3}$
 

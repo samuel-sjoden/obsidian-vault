@@ -84,7 +84,6 @@ After reinstalling, the same issue occurred, so I will be making a git and switc
 Switching to the distro was smooth and worked on the first try.
 
 I then added the SLOT code which receives the buttons (the producer) SIGNAL to open a file window to select an image to add to the Window
-![[Pasted image 20250930120253.png]]
 
 
 #### Integrating Webcam Stream
@@ -124,7 +123,7 @@ The next step is to be able to identify good matches. This is where techniques l
 Another alternative hat the lab guide provided which seemed fairly interesting was the FLANN matching technique. When matching keypoints for sift, the $L_{2}$ distance between the descriptor vectors are used. After the euclidean distance between all keypoints has been identified, the ratio of the two lowest (closest matches ) is found. For the point to be considered an unambiguous match, the highest match should be much closer than the second closest, so the ratio of $\frac{d_{2}}{d_{1}}$ should be small. A threshold for this ratio is set and only matches that have a ratio lower are selected.
 
 Once the closest matches have been found, the RANSAC technique will help further eliminate outliers when creating the Homography. I dont have good intutition as to what a homography is, so I asked chat to explain it to me.
-![[Pasted image 20250930131249.png]]
+
 
 
 My key misunderstanding was that it was a simple linear mapping, but this is incorrect since the homography can still map to tilted images. Chat explained it in an interesting way where it described it as linear in a higher dimension where the scales and shears can be achieved. Then all of the 2D points are represented as a pair of coordinates and a third scaling factor which also gets transformed.
@@ -135,18 +134,14 @@ Using the following resources, i then put together the following implementation 
 **For the FLANN Matching [cv link](https://docs.opencv.org/3.4/d5/d6f/tutorial_feature_flann_matcher.html)**
 **Using SIFT Feature Identifier [cv link](https://docs.opencv.org/3.4/da/df5/tutorial_py_sift_intro.html)** 
 
-![[Pasted image 20250930140735.png]]![[Pasted image 20250930140758.png]]
 The bounding box worked well when the image was close and visible. It struggled to detect the image at a distance. Increasing the brightness of my phone additionally improved the detection.
 
 If I was to improve one thing, it would be the speed that it operates. The 2 frame per second frame is painfully slow and the time required to carry out all of the operations can also be very time consuming. I increased the frame rate to 60 fps and it remained just as functional.
-
-![[Pasted image 20250930141437.png]]
+image
 Another thing I noted was that the homography deteriorated when the image was brought to sharp angles. The matching algorithm was still finding 'good matches', but the transform would jitter. I couldn't quite capture it with the screenshot.
 
 
 I experimented with another image with a bit more symmetry in it to see if it would perform any worse,
-![[Pasted image 20250930142036.png]]
 but it surprisingly handled it well.
 
 I also tried it with myself. It didn't work.
-![[Pasted image 20250930173314.png]]

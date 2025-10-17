@@ -37,6 +37,11 @@ Y(j\omega)=H(j\omega)X(j\omega)
 $$
 This simplifies the solution becasue we dont need to do a weird sum of all component from all time of $x$ and $h$.
 
+##### Note on the Commutivity of the Convolution
+Swapping systems can be useful sometimes and the commutivity of the [[Convolution]] seems to permit, but there is an additional condition. This is that $$
+x(t)*h(t)
+$$
+Is a finite signal. That is that the systems are [[Stable Systems]] for us to be able to swap the systems.
 #### Filters
 In the context of [[Filters]], if we know the frequency reponse of the filter, we can quickly determine the output of the system in $j\omega$ domain by multiplying the input signal and frequency response.
 
@@ -79,6 +84,40 @@ $$
 Convolutions with deltas move it to where the delta is. So we have just shifted the signal from its an original range to a high frequency range. Then to downconvert, the signal is multiplied by the negative.
 
 > In reality we cannot send an 'imaginary signal' so to get around this, the signal is sent in two components, the real and imaginary one.
-
 ###### Modulation For Filters
 The same frequency shifting techniques can be used when things like high frequency filtering is required, but it is physically difficult to build one with a center frequency at the desired range. 
+
+>[!Question]
+>How would you do this with electrical signals? Would you again two chanels?
+## Differentiation and Integration
+### Fourier Property of Differentiation
+What if we wanted to know the output of system if we inputed the derivative of a signal.
+
+Say we know
+$$
+x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(j\omega)e^{ j\omega t } \, d\omega
+$$
+Then we can find that:
+$$
+\frac{dx(t)}{dt}=\frac{1}{2\pi}\times \frac{d}{dt}\int_{-\infty}^{\infty} X(j\omega)e^{ j\omega t } \, d\omega
+$$
+$$
+\frac{dx(t)}{dt}\leftrightarrow j\omega X(j\omega)
+$$
+### Fourier Property of Integration
+It can be found similarly that:
+$$
+\int_{-\infty}^{t} x(\tau) \, d\tau \leftrightarrow \frac{X(j\omega)}{j\omega}  
+$$
+But we have forgotten the constant of integration:
+$$
+X(0)\pi \delta(\omega)
+$$
+Where $$
+X(0)=\int_{-\infty}^{\infty} x(t) \, dt
+$$
+Which is the DC component of the signal (frequency zero) that gets killed during differentiation and accumulates in integration.
+If you actually want to carry this proof out you need to use the [[Cauchy Residue Theorem]].
+
+##### Aside on Parsevals Relation
+Parsevals relation tells you that the energy of the signal in time is the same as the energy of the signal in frequency.
