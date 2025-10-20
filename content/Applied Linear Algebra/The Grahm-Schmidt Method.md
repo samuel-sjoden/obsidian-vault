@@ -1,4 +1,4 @@
-### Building an Orthogonal Basis of A Subpace $U$
+## Building an Orthogonal Basis of A Subpace $U$
 If there is a $U$ represented by a basis that is not necesarrily orthogonal to each other, we can build a basis by finding the orthogonal projections of each other
 $$
 \begin{align}
@@ -14,4 +14,3 @@ $$
 
 >[!Question]
 > Why do we need an orthogonal basis to build a projection matrix
-
