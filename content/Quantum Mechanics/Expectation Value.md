@@ -74,6 +74,5 @@ We can use this to immediately cancel the non-cross terms if they are both real 
 if $f = g = \phi_1$
 left side is zero because of boundary, making the right side equal to each  other
 
-$$
-  
-$$
+### Symmetric Distributions
+If a distribution has symmetry, that is no preference to one side or the other, that means that $\left< O \right> = 0$. Taking the expectation value squared, eliminates the negative side and reveals the overall tendency to be at an absolute state $\left< O^{2} \right>$

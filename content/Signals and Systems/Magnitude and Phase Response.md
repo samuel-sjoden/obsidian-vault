@@ -7,12 +7,14 @@ All im getting out of this is that phase information is important. Removing the 
 $$
 \left| Y(j\omega) \right| =\left| H(j\omega) \right|\left| X(j\omega) \right|
 $$$$
-\text{phase }Y(j\omega)= \text{phase } H+ \text{phase }X
+\angle Y(j\omega)= \angle H+ \angle X
+$$$$
+\left| H(j\omega) \right| e^{ j\angle H(j\omega) }\left| X(j\omega) \right| e^{ j\angle X(j\omega) }
 $$
 These are the **Gain** and **Phase Shift** of the frequency response. These can be helpful when filter or using a system, or they can introduce distortion.
 
 ### Linear Phase Response
-The nicest type of phase response where the phase shift of the signal is directly proportional to the frequency of the signal.
+The nicest type of phase response where the phase shift of the signal is directly proportional to the frequency of the signal. 
 
 **Example**
 $$
@@ -25,7 +27,13 @@ This produces a shift in the time domain:
 $$
 y(t) = x(t-t_{0})
 $$
-### Non Linear Phase Response
+>[!Example]
+> $$
+ H(j\omega) =e^{ -j\alpha \omega }$$
+ > Has a magnitude of $1$ and a phase shift of $\alpha$.
+ >  Given a signal $x(t)=\frac{\sin(\omega_{0}t)}{\pi t}$, it will be shifted in time because the frequency response brings a shift in frequency. This is one of the [[Fourier Transform Properties]]
+ 
+ ### Non Linear Phase Response
 If the phase response is non-linear, the signal gets distorted as different frequencies are shifted different amounts.
 
 This is present in things like an RC low pass filter which has a non-linear phase response.$$

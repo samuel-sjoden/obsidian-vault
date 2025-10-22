@@ -1,0 +1,1 @@
+Hydraulic shock describes a phenomenon when a flowing fluid is rapidly stopped creating a large shock that propagates back through the system. These can be quite large because of the momentum developed by the fluid.

@@ -35,6 +35,6 @@ $$
 Ux=y
 $$
 ### Properties of $LU$ Decomposition
-When performing $LU$ decomposition, the $U$ matrix undergoes row operations that modify the equations, but do not affect the row space of the matrix $A$. This cannot be said for the column space. The column space of the matrix is not preserved by the row operations. $A$ and $U$ do not share the same [[Range Space]]. 
+When performing $LU$ decomposition, the $U$ matrix undergoes row operations that modify the equations, but do not affect the row space of the matrix $A$. This cannot be said for the column space. The column space of the matrix is not preserved by the row operations. $A$ and $U$ do not share the same [[The Null Space and Range Space|Range Space]]. 
 
 Their transposes on the other hand do, because of the preservation of the row space of the matrix.
