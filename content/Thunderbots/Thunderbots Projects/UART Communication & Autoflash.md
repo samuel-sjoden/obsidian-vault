@@ -148,3 +148,7 @@ The metrics we will be interested in running the test will be:
 - Error Rate - $\frac{\text{Number of Corrupted Responses}}{\text{Number of Acknowledgments}}$
 
 
+ RX and TX are swapped on UI board. 
+ dev/ttyAMA0 for uart0 communication with ESP 
+ ensure uart is enable in raspi-config file (we said yes to both hardware and console dont know if console matters)
+ 
